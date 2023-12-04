@@ -28,7 +28,7 @@ mysqli_close($conn);
 $conn = mysqli_connect($server, $user, $pass, $dbupdated);
 
 $create_table = "CREATE TABLE IF NOT EXISTS CANDIDATE (
-                    CANDIDATE_ID VARCHAR(10) NOT NULL,
+                    CANDIDATE_ID INT NOT NULL,
                     FIRST_NAME VARCHAR(20) NOT NULL,
                     LAST_NAME VARCHAR(25) NOT NULL
                     )";
@@ -43,10 +43,10 @@ mysqli_close($conn);
 $conn = mysqli_connect($server, $user, $pass, $dbupdated);
 
 $create_table = "CREATE TABLE IF NOT EXISTS COURSE (
-                    COURSE_ID VARCHAR(10) NOT NULL,
+                    COURSE_ID INT NOT NULL,
                     COURSE_NAME VARCHAR(50) NOT NULL,
                     QUALIFICATION_ID VARCHAR(11) NOT NULL,
-                    FEE VARCHAR(6) NOT NULL
+                    FEE FLOAT(7, 2) NOT NULL
                     )";
 
 $result = mysqli_query($conn, $create_table);
@@ -59,22 +59,8 @@ mysqli_close($conn);
 $conn = mysqli_connect($server, $user, $pass, $dbupdated);
 
 $create_table = "CREATE TABLE IF NOT EXISTS SESSION (
-                    CANDIDATE_ID VARCHAR(10) NOT NULL,
-                    SESSION_ID VARCHAR(10) NOT NULL
-                    )";
-
-$result = mysqli_query($conn, $create_table);
-
-mysqli_close($conn);
-
-
-
-
-$conn = mysqli_connect($server, $user, $pass, $dbupdated);
-
-$create_table = "CREATE TABLE IF NOT EXISTS ENROLLMENT (
-                    CANDIDATE_ID VARCHAR(10) NOT NULL,
-                    SESSION_ID VARCHAR(10) NOT NULL
+                    CANDIDATE_ID INT NOT NULL,
+                    SESSION_ID INT NOT NULL
                     )";
 
 $result = mysqli_query($conn, $create_table);
@@ -87,7 +73,7 @@ mysqli_close($conn);
 $conn = mysqli_connect($server, $user, $pass, $dbupdated);
 
 $create_table = "CREATE TABLE IF NOT EXISTS COMPANY (
-                    COMPANY_ID VARCHAR(10) NOT NULL,
+                    COMPANY_ID INT NOT NULL,
                     COMPANY_NAME VARCHAR(20) NOT NULL
                     )";
 
@@ -101,7 +87,7 @@ mysqli_close($conn);
 $conn = mysqli_connect($server, $user, $pass, $dbupdated);
 
 $create_table = "CREATE TABLE IF NOT EXISTS QUALIFICATIONS (
-                    QUALIFICATION_ID VARCHAR(11) NOT NULL
+                    QUALIFICATION_ID INT NOT NULL
                     )";
 
 $result = mysqli_query($conn, $create_table);
@@ -114,8 +100,8 @@ mysqli_close($conn);
 $conn = mysqli_connect($server, $user, $pass, $dbupdated);
 
 $create_table = "CREATE TABLE IF NOT EXISTS QUALIFICATION_STATUS (
-                    QUALIFICATION_ID VARCHAR(11) NOT NULL,
-                    CANDIDATE_ID VARCHAR(10) NOT NULL
+                    QUALIFICATION_ID INT NOT NULL,
+                    CANDIDATE_ID INT NOT NULL
                     )";
 
 $result = mysqli_query($conn, $create_table);
@@ -128,8 +114,8 @@ mysqli_close($conn);
 $conn = mysqli_connect($server, $user, $pass, $dbupdated);
 
 $create_table = "CREATE TABLE IF NOT EXISTS PREREQUISITE (
-                    COURSE_ID VARCHAR(10) NOT NULL,
-                    QUALIFICATION_ID VARCHAR(10) NOT NULL
+                    COURSE_ID INT NOT NULL,
+                    QUALIFICATION_ID INT NOT NULL
                     )";
 
 $result = mysqli_query($conn, $create_table);
@@ -141,12 +127,12 @@ mysqli_close($conn);
 $conn = mysqli_connect($server, $user, $pass, $dbupdated);
 
 $create_table = "CREATE TABLE IF NOT EXISTS OPENING (
-                    OPENING_ID VARCHAR(10) NOT NULL,
-                    COMPANY_ID VARCHAR(20) NOT NULL,
-                    QUALIFICATION_ID VARCHAR(25) NOT NULL,
+                    OPENING_ID INT NOT NULL,
+                    COMPANY_ID INT NOT NULL,
+                    QUALIFICATION_ID INT NOT NULL,
                     ST_DATE DATE NOT NULL,
                     END_DATE DATE NOT NULL,
-                    HOURLY_PAY VARCHAR(9) NOT NULL
+                    HOURLY_PAY FLOAT(7, 2) NOT NULL
                     )";
 
 $result = mysqli_query($conn, $create_table);
@@ -159,9 +145,9 @@ mysqli_close($conn);
 $conn = mysqli_connect($server, $user, $pass, $dbupdated);
 
 $create_table = "CREATE TABLE IF NOT EXISTS PLACEMENT (
-                    PLACEMENT_ID VARCHAR(10) NOT NULL,
-                    CANDIDATE_ID VARCHAR(10) NOT NULL,
-                    OPENING_ID VARCHAR(10) NOT NULL,
+                    PLACEMENT_ID INT NOT NULL,
+                    CANDIDATE_ID INT NOT NULL,
+                    OPENING_ID INT NOT NULL,
                     HOURS_WORKED INT NOT NULL
                     )";
 
@@ -175,8 +161,8 @@ mysqli_close($conn);
 $conn = mysqli_connect($server, $user, $pass, $dbupdated);
 
 $create_table = "CREATE TABLE IF NOT EXISTS JOB_HISTORY (
-                    OPENING_ID VARCHAR(10) NOT NULL,
-                    CANDIDATE_ID VARCHAR(10) NOT NULL
+                    OPENING_ID INT NOT NULL,
+                    CANDIDATE_ID INT NOT NULL
                     )";
 
 $result = mysqli_query($conn, $create_table);
