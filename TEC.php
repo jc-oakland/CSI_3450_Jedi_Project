@@ -45,7 +45,7 @@ $conn = mysqli_connect($server, $user, $pass, $dbupdated);
 $create_table = "CREATE TABLE IF NOT EXISTS COURSE (
                     COURSE_ID INT NOT NULL,
                     COURSE_NAME VARCHAR(50) NOT NULL,
-                    QUALIFICATION_ID VARCHAR(11) NOT NULL,
+                    QUALIFICATION_ID INT NOT NULL,
                     FEE FLOAT(7, 2) NOT NULL
                     )";
 
