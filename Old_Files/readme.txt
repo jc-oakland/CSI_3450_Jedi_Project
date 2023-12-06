@@ -1,1 +1,1 @@
-Older php file mostly used for testing.
+Older php and html files mostly used for testing.
