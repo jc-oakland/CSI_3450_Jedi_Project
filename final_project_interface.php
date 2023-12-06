@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- test_get.php -->
+<!-- final_project_interface.php -->
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -24,11 +24,8 @@
     echo "<h2>You sent me the values $_GET[value1]";
     echo "</h2>";
 
-    // Create variable for MSCT_NAME column and set it as $_GET['value1']
+    // Create variable for FIRST_NAME column and set it as $_GET['value1']
     $candidateName = mysqli_real_escape_string($conn, $_GET['value1']);
-
-    // Send the SQL query to the database
-    $result = mysqli_query($conn, $query);
 
     // Second SQL query to pull the data from the database
     $query = "SELECT JH.START_DATE AS 'Start Date', JH.END_DATE AS 'End Date', C.FIRST_NAME AS 'First Name', C.LAST_NAME AS 'Last Name', Q.QUALIFICATION_DESC AS 'Qualification'
@@ -36,7 +33,7 @@
     LEFT JOIN CANDIDATE AS C ON JH.CANDIDATE_ID = C.CANDIDATE_ID
     LEFT JOIN QUALIFICATION_STATUS AS QS ON QS.CANDIDATE_ID = JH.CANDIDATE_ID
     LEFT JOIN QUALIFICATIONS AS Q ON Q.QUALIFICATION_ID = QS.QUALIFICATION_ID
-    WHERE '%$candidateName%' ;";
+    WHERE C.FIRST_NAME LIKE '%$candidateName%';";
 
     // Sends the result of the SQL query to $result variable
     $result = $conn->query($query);
@@ -46,10 +43,10 @@
     if ($result->num_rows > 0) {
       // Output data of each row
       while($row = $result->fetch_assoc()) {
-        echo "----------------------------------------------------------------------------------------------<br>";
-        echo "| Start Date: " . $row["START_DATE"]. " | End Date: " . $row["END_DATE"]. " | First Name: " . $row["FIRST_NAME"]. " | Last Name: " . 
-        $row["LAST_NAME"]. " | Qualification: " . $row["QUALIFICATION_DESC"]. " |<br>";
-        echo "----------------------------------------------------------------------------------------------<br>";
+        echo "--------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>";
+        echo "| Start Date: " . $row["Start Date"]. " | End Date: " . $row["End Date"]. " | First Name: " . $row["First Name"]. " | Last Name: " . 
+        $row["Last Name"]. " | Qualification: " . $row["Qualification"]. " |<br>";
+        echo "--------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>";
       }
     } else {
       echo "0 results";
