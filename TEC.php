@@ -181,6 +181,8 @@ $conn = mysqli_connect($server, $user, $pass, $dbupdated);
 $create_table = "CREATE TABLE IF NOT EXISTS JOB_HISTORY (
                     OPENING_ID INT,
                     CANDIDATE_ID INT,
+                    START_DATE DATE,
+                    END_DATE DATE,   
                     PRIMARY KEY (OPENING_ID, CANDIDATE_ID),
                     FOREIGN KEY (CANDIDATE_ID) REFERENCES CANDIDATE(CANDIDATE_ID),
                     FOREIGN KEY (OPENING_ID) REFERENCES OPENING(OPENING_ID)
