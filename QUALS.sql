@@ -25,6 +25,17 @@ LEFT JOIN QUALIFICATION_STATUS AS QS ON QS.CANDIDATE_ID = JH.CANDIDATE_ID
 LEFT JOIN QUALIFICATIONS AS Q ON Q.QUALIFICATION_ID = QS.QUALIFICATION_ID;
 
 =================================================================================================================
+/*statements to fill out candidate table*/
+
+INSERT INTO candidate (CANDIDATE_ID, FIRST_NAME, LAST_NAME) VALUES ('1', 'Patrick', 'Kane');
+INSERT INTO candidate (CANDIDATE_ID, FIRST_NAME, LAST_NAME) VALUES ('2', 'Dylan', 'Larkin');
+INSERT INTO candidate (CANDIDATE_ID, FIRST_NAME, LAST_NAME) VALUES ('3', 'Moritz', 'Seider');
+INSERT INTO candidate (CANDIDATE_ID, FIRST_NAME, LAST_NAME) VALUES ('4', 'Lucas', 'Raymond');
+INSERT INTO candidate (CANDIDATE_ID, FIRST_NAME, LAST_NAME) VALUES ('5', 'Daniel', 'Sprong');
+INSERT INTO candidate (CANDIDATE_ID, FIRST_NAME, LAST_NAME) VALUES ('6', 'Alex', 'Lyon');
+INSERT INTO candidate (CANDIDATE_ID, FIRST_NAME, LAST_NAME) VALUES ('7', 'JT', 'Compher');
+  
+=================================================================================================================
 /*statements to fill out opening table*/
 
 INSERT INTO opening 
